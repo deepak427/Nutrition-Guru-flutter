@@ -49,8 +49,8 @@ class IntroPage extends StatelessWidget {
 
             MyButton(
               onTap: () => Navigator.pushNamed(context, '/shop_page'),
-              color: Theme.of(context).colorScheme.secondary,
-              child: const SizedBox(
+              color: Theme.of(context).colorScheme.primary,
+              child: SizedBox(
                 width: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,11 +58,15 @@ class IntroPage extends StatelessWidget {
                     Text(
                       "Grow",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer),
                     ),
-                    Icon(Icons.arrow_forward_outlined),
+                    Icon(
+                      Icons.arrow_forward_outlined,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
                   ],
                 ),
               ),
