@@ -44,7 +44,7 @@ class MyProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, '/nutritionist_ai_page'),
-      child: Container( 
+      child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
@@ -68,13 +68,13 @@ class MyProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     width: double.infinity,
-                    child: Lottie.asset("assests/nutritionist.json",
+                    child: Lottie.asset("assests/nutritionist_animation.json",
                         fit: BoxFit.cover),
                   ),
                 ),
-      
+
                 const SizedBox(height: 25),
-      
+
                 //product name
                 Text(
                   product.name,
@@ -83,9 +83,9 @@ class MyProductTile extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-      
+
                 const SizedBox(height: 10),
-      
+
                 //product description
                 Text(
                   product.description,
@@ -95,15 +95,15 @@ class MyProductTile extends StatelessWidget {
                 ),
               ],
             ),
-      
+
             // price + add to cart button
-      
+
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
             //   children: [
             //     //product price
             //     Text('\$${product.price.toStringAsFixed(2)}'),
-      
+
             //     //add button
             //     Container(
             //       decoration: BoxDecoration(
@@ -116,7 +116,6 @@ class MyProductTile extends StatelessWidget {
             //     )
             //   ],
             // )
-      
           ],
         ),
       ),
