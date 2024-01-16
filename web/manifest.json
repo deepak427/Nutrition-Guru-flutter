@@ -1,6 +1,6 @@
 {
-    "name": "e_shop",
-    "short_name": "e_shop",
+    "name": "nutrition_guru",
+    "short_name": "nutrition_guru",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

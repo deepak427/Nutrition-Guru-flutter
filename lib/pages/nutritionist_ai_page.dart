@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:nutrition_guru/api/gpt_vision_api.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class NutritionistAiPage extends StatefulWidget {
   const NutritionistAiPage({super.key});
@@ -18,9 +21,28 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
   //we can upload image from camera or from gallery based on parameter
   Future getImage(ImageSource media) async {
     var img = await picker.pickImage(source: media);
-    if (img != null) {
-      makeGptVisionApiRequest();
+
+    if (img == null) return;
+
+    //generate a unique name
+    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+    //create reference of image
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImages = referenceRoot.child('temp');
+
+    Reference referenceImageToUpload =
+        referenceDirImages.child('$uniqueFileName' '.jpeg');
+
+    try {
+      //store the image
+      await referenceImageToUpload.putFile(File(img.path));
+      String imageUrl = await referenceImageToUpload.getDownloadURL();
+      makeGptVisionApiRequest(imageUrl);
+    } catch (error) {
+      rethrow;
     }
+
     setState(() {
       image = img;
     });

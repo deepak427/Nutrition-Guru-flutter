@@ -6,8 +6,11 @@ import 'package:nutrition_guru/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './pages/intro_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(ChangeNotifierProvider(
     create: (context) => Service(),
     child: const MyApp(),

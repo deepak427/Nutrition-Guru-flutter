@@ -1,4 +1,4 @@
-# e_shop
+# nutrition_guru
 
 A new Flutter project.
 
