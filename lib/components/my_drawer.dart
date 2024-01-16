@@ -1,4 +1,4 @@
-import 'package:e_shop/components/my_list_tile.dart';
+import 'package:nutrition_guru/components/my_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {

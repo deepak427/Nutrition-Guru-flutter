@@ -1,4 +1,4 @@
-import 'package:e_shop/components/my_button.dart';
+import 'package:nutrition_guru/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -48,7 +48,7 @@ class IntroPage extends StatelessWidget {
             //buttom
 
             MyButton(
-              onTap: () => Navigator.pushNamed(context, '/shop_page'),
+              onTap: () => Navigator.pushNamed(context, '/home_page'),
               color: Theme.of(context).colorScheme.primary,
               child: SizedBox(
                 width: 80,

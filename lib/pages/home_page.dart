@@ -1,15 +1,15 @@
-import 'package:e_shop/components/my_drawer.dart';
-import 'package:e_shop/components/my_product_tile.dart';
-import 'package:e_shop/models/shop.dart';
+import 'package:nutrition_guru/components/my_drawer.dart';
+import 'package:nutrition_guru/components/my_product_tile.dart';
+import 'package:nutrition_guru/models/service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ShopPage extends StatelessWidget {
-  const ShopPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final products = context.watch<Shop>().shop;
+    final products = context.watch<Service>().shop;
 
     return Scaffold(
         appBar: AppBar(

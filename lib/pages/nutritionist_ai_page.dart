@@ -1,3 +1,4 @@
+import 'package:nutrition_guru/api/gpt_vision_api.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
@@ -17,7 +18,9 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
   //we can upload image from camera or from gallery based on parameter
   Future getImage(ImageSource media) async {
     var img = await picker.pickImage(source: media);
-
+    if (img != null) {
+      makeGptVisionApiRequest();
+    }
     setState(() {
       image = img;
     });

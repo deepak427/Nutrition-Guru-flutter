@@ -1,5 +1,5 @@
-import 'package:e_shop/models/product.dart';
-import 'package:e_shop/models/shop.dart';
+import 'package:nutrition_guru/models/product.dart';
+import 'package:nutrition_guru/models/service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class CartPage extends StatelessWidget {
               Navigator.pop(context);
 
               //add to cart
-              context.read<Shop>().removeFromCart(product);
+              context.read<Service>().removeFromCart(product);
             },
             child: const Text("Yes"),
           )
@@ -36,7 +36,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = context.watch<Shop>().cart;
+    final cart = context.watch<Service>().cart;
 
     return Scaffold(
       appBar: AppBar(

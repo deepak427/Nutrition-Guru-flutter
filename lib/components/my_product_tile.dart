@@ -1,5 +1,5 @@
-import 'package:e_shop/models/product.dart';
-import 'package:e_shop/models/shop.dart';
+import 'package:nutrition_guru/models/product.dart';
+import 'package:nutrition_guru/models/service.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +31,7 @@ class MyProductTile extends StatelessWidget {
               Navigator.pop(context);
 
               //add to cart
-              context.read<Shop>().addToCart(product);
+              context.read<Service>().addToCart(product);
             },
             child: const Text("Yes"),
           )
