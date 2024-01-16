@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:nutrition_guru/components/ai_response_layout.dart';
 
 class NutritionistAiPage extends StatefulWidget {
   const NutritionistAiPage({super.key});
@@ -15,6 +16,8 @@ class NutritionistAiPage extends StatefulWidget {
 
 class _NutritionistAiPageState extends State<NutritionistAiPage> {
   XFile? image;
+  String nutritionistResponse = '';
+  String buttonText = 'Upload Image';
 
   final ImagePicker picker = ImagePicker();
 
@@ -23,6 +26,10 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
     var img = await picker.pickImage(source: media);
 
     if (img == null) return;
+
+    setState(() {
+      buttonText = 'Uploading';
+    });
 
     //generate a unique name
     String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
@@ -38,13 +45,14 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
       //store the image
       await referenceImageToUpload.putFile(File(img.path));
       String imageUrl = await referenceImageToUpload.getDownloadURL();
-      makeGptVisionApiRequest(imageUrl);
+      nutritionistResponse = await makeGptVisionApiRequest(imageUrl);
     } catch (error) {
       rethrow;
     }
 
     setState(() {
       image = img;
+      buttonText = 'Update Image';
     });
   }
 
@@ -124,44 +132,55 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Nutritionist AI"),
       ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              //Title
-              Text(
-                "Upload an image of the nutrition label of any product, and the nutritionist AI will give health insights about that product.",
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Theme.of(context).colorScheme.inversePrimary),
-              ),
-
-              //Logo
-
-              Lottie.asset(
-                'assests/camera_animation.json',
-                width: 100,
-              ),
-
-              const SizedBox(height: 15),
-
-              //Image upload button
-
-              ElevatedButton(
-                onPressed: () {
-                  myAlert();
-                },
-                child: Text(
-                  'Upload Photo',
+      body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: Center(
+          child: Container(
+            margin: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                //Title
+                Text(
+                  "Upload an image of the nutrition label of any product, and the nutritionist AI will give health insights about that product.",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.inversePrimary),
+                ),
+
+                //Logo
+
+                Lottie.asset(
+                  'assests/camera_animation.json',
+                  width: 100,
+                ),
+
+                const SizedBox(height: 15),
+
+                //Image upload button
+
+                ElevatedButton(
+                  onPressed: () {
+                    myAlert();
+                  },
+                  child: Text(
+                    buttonText,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
                   ),
                 ),
-              )
 
-              //Description
-            ],
+                //Description
+
+                Visibility(
+                  visible: image != null,
+                  child: AiResponseLayout(
+                    img: image,
+                    aiResponse: nutritionistResponse,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
