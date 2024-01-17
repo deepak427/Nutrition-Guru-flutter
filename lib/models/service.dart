@@ -11,6 +11,7 @@ class Service extends ChangeNotifier {
       description:
           "Nutritionist AI leverages artificial intelligence to give health insights about a product.",
       animationPath: 'assests/nutritionist_animation.json',
+      routePath: "/nutritionist_ai_page",
     ),
     //product 2
     Product(
@@ -19,14 +20,16 @@ class Service extends ChangeNotifier {
       description:
           "Calorie predictor predicts the total calories in a given image of food.",
       animationPath: 'assests/calorie_animation.json',
+      routePath: "/calorie_predictor_page",
     ),
     //product 3
-    Product(
-      name: "Product3",
-      price: 999.99,
-      description: "this is description",
-      animationPath: 'assests/calorie_animation.json',
-    ),
+    // Product(
+    //   name: "Product3",
+    //   price: 999.99,
+    //   description: "this is description",
+    //   animationPath: 'assests/calorie_animation.json',
+    //   routePath: "calorie_predictor_page",
+    // ),
   ];
 
   //user cart

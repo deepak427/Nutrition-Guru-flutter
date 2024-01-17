@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
           children: [
             //shop subtitle
             const SizedBox(
-              height: 25,
+              height: 60,
             ),
 
             Center(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
 
             //service list

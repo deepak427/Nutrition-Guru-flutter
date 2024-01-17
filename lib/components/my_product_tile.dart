@@ -43,7 +43,7 @@ class MyProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/nutritionist_ai_page'),
+      onTap: () => Navigator.pushNamed(context, product.routePath),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,

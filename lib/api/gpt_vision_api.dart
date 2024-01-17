@@ -1,19 +1,18 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-Future<String> makeGptVisionApiRequest(String imageUrl, String systemMessage) async {
-  const String apiUrl =
-      "https://api.clarifai.com/v2/users/openai/apps/chat-completion/models/openai-gpt-4-vision/versions/266df29bc09843e0aee9b7bf723c03c2/outputs";
-  const String apiKey = "82aea527de1a43f4a670ed0572920f62";
+Future<String> makeGptVisionApiRequest(
+    String imageUrl, String systemMessage) async {
+      
+  String apiUrl = "${dotenv.env['URL_CLARIFAI']}";
+  String apiKey = "${dotenv.env['API_KEY_CLARIFAI']}";
 
   final Map<String, dynamic> requestData = {
     "inputs": [
       {
         "data": {
-          "text": {
-            "raw":
-                systemMessage
-          },
+          "text": {"raw": systemMessage},
           "image": {"url": imageUrl}
         }
       }

@@ -10,11 +10,15 @@ class AiPage extends StatefulWidget {
   final Future<String> Function(String, String) apiCall;
   final String instructions;
   final String systemMessage;
+  final String cameraPath;
+  final String header;
   const AiPage(
       {super.key,
       required this.apiCall,
       required this.instructions,
-      required this.systemMessage});
+      required this.systemMessage,
+      required this.cameraPath,
+      required this.header});
 
   @override
   State<AiPage> createState() => _AiPageState();
@@ -140,7 +144,7 @@ class _AiPageState extends State<AiPage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Nutritionist AI"),
+        title: Text(widget.header),
       ),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -160,11 +164,9 @@ class _AiPageState extends State<AiPage> {
                 //Logo
 
                 Lottie.asset(
-                  'assests/camera_animation.json',
-                  width: 100,
+                  widget.cameraPath,
+                  width: 130,
                 ),
-
-                const SizedBox(height: 15),
 
                 //Image upload button
 
