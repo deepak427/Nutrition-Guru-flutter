@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           elevation: 0,
           foregroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text("Home"),
@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
               height: 60,
             ),
 
-            //product list
+            //service list
 
             SizedBox(
               height: 550,

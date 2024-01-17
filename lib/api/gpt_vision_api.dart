@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future<String> makeGptVisionApiRequest(String imageUrl) async {
+Future<String> makeGptVisionApiRequest(String imageUrl, String systemMessage) async {
   const String apiUrl =
       "https://api.clarifai.com/v2/users/openai/apps/chat-completion/models/openai-gpt-4-vision/versions/266df29bc09843e0aee9b7bf723c03c2/outputs";
   const String apiKey = "82aea527de1a43f4a670ed0572920f62";
@@ -12,7 +12,7 @@ Future<String> makeGptVisionApiRequest(String imageUrl) async {
         "data": {
           "text": {
             "raw":
-                "You are a nutritionist. You have knowledge of the effects of nutrients and ingredients in a product on health. You will be given an image of the nutritional information label. Output the benefits and losses of consuming that product. Also recommend how much of that product should be consumed per day."
+                systemMessage
           },
           "image": {"url": imageUrl}
         }

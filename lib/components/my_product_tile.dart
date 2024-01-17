@@ -68,14 +68,14 @@ class MyProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     width: double.infinity,
-                    child: Lottie.asset("assests/nutritionist_animation.json",
-                        fit: BoxFit.cover),
+                    child:
+                        Lottie.asset(product.animationPath, fit: BoxFit.cover),
                   ),
                 ),
 
                 const SizedBox(height: 25),
 
-                //product name
+                //service name
                 Text(
                   product.name,
                   style: const TextStyle(

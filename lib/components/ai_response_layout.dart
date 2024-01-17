@@ -23,21 +23,37 @@ class AiResponseLayout extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // AspectRatio widget with a fixed aspect ratio
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Image.file(
-              File(img!.path),
-              fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(3),
+              child: Image.file(
+                File(img!.path),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          const SizedBox(height: 25),
+
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+            child: Text(
+              "Nutritionist AI",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 10),
           // Product name
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
             child: Text(
               aiResponse,
-              style: const TextStyle(
-                fontSize: 18,
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
           ),

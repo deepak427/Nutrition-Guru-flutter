@@ -9,22 +9,23 @@ class Service extends ChangeNotifier {
       name: "Nutritionist AI",
       price: 99.99,
       description:
-          "A Nutritionist AI service leverages artificial intelligence to provide personalized and automated nutritional guidance.",
-      imagePath: 'assests/cake.png',
+          "Nutritionist AI leverages artificial intelligence to give health insights about a product.",
+      animationPath: 'assests/nutritionist_animation.json',
     ),
     //product 2
     Product(
-      name: "Product2",
+      name: "Calorie Predictor",
       price: 9.99,
-      description: "this is description",
-      imagePath: 'assests/cake.png',
+      description:
+          "Calorie predictor predicts the total calories in a given image of food.",
+      animationPath: 'assests/calorie_animation.json',
     ),
     //product 3
     Product(
       name: "Product3",
       price: 999.99,
       description: "this is description",
-      imagePath: 'assests/cake.png',
+      animationPath: 'assests/calorie_animation.json',
     ),
   ];
 
