@@ -18,6 +18,7 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
   XFile? image;
   String nutritionistResponse = '';
   String buttonText = 'Upload Image';
+  bool loading = false;
 
   final ImagePicker picker = ImagePicker();
 
@@ -29,6 +30,7 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
 
     setState(() {
       buttonText = 'Uploading';
+      loading = !loading;
     });
 
     //generate a unique name
@@ -53,6 +55,7 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
     setState(() {
       image = img;
       buttonText = 'Update Image';
+      loading = !loading;
     });
   }
 
@@ -171,6 +174,14 @@ class _NutritionistAiPageState extends State<NutritionistAiPage> {
                 ),
 
                 //Description
+
+                Visibility(
+                  visible: loading,
+                  child: Lottie.asset(
+                    'assests/loading.json',
+                    width: 500,
+                  ),
+                ),
 
                 Visibility(
                   visible: image != null,
