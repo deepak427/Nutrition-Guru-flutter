@@ -193,7 +193,7 @@ class _AiPageState extends State<AiPage> {
                 ),
 
                 Visibility(
-                  visible: image != null,
+                  visible: !loading && image != null,
                   child: AiResponseLayout(
                     img: image,
                     aiResponse: nutritionistResponse,

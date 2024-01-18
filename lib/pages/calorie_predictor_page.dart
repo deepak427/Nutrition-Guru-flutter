@@ -12,8 +12,9 @@ class CalorieAiPage extends StatelessWidget {
       instructions:
           "Upload the image of the food you want to predict calories for, and Calorie Predictor will give you the total calories and nutrition in that food.",
       systemMessage:
-          'Your work is to predict calories and nutrition in a given image of food. In the given image of a food, predict its total calories, its distribution, and the nutrition in that food. Tell about its effects on health and the precautions that should be taken regarding that food.',
-      cameraPath: 'assests/camera_2_animation.json', header: 'Calorie Predictor',
+          'Your work is to predict approximate calories and nutrition in a given image of food. In the given image of a food, predict its approximate total amount of calories, its distribution, and the nutrition in grams of that food. Tell about its effects on health.',
+      cameraPath: 'assests/camera_2_animation.json',
+      header: 'Calorie Predictor',
     );
   }
 }

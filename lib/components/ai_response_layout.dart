@@ -25,11 +25,13 @@ class AiResponseLayout extends StatelessWidget {
           // AspectRatio widget with a fixed aspect ratio
           Padding(
             padding: const EdgeInsets.all(15),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(3),
-              child: Image.file(
-                File(img!.path),
-                fit: BoxFit.cover,
+            child: Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(3),
+                child: Image.file(
+                  File(img!.path),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
