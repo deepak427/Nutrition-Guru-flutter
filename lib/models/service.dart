@@ -22,14 +22,15 @@ class Service extends ChangeNotifier {
       animationPath: 'assests/calorie_animation.json',
       routePath: "/calorie_predictor_page",
     ),
-    //product 3
-    // Product(
-    //   name: "Product3",
-    //   price: 999.99,
-    //   description: "this is description",
-    //   animationPath: 'assests/calorie_animation.json',
-    //   routePath: "calorie_predictor_page",
-    // ),
+    // product 3
+    Product(
+      name: "Diet Planner",
+      price: 999.99,
+      description:
+          "Diet planner plans the perfect diet according to the user's requirements, considering various factors like age, sex, location, health, etc.",
+      animationPath: 'assests/calorie_animation.json',
+      routePath: "/diet_planner_page",
+    ),
   ];
 
   //user cart

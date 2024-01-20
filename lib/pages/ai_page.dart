@@ -172,8 +172,7 @@ class _AiPageState extends State<AiPage> {
 
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/dummy");
-                    // myAlert();
+                    myAlert();
                   },
                   child: Text(
                     buttonText,
