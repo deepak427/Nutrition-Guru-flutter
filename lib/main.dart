@@ -2,6 +2,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:nutrition_guru/models/service.dart';
 import 'package:nutrition_guru/pages/calorie_predictor_page.dart';
 import 'package:nutrition_guru/pages/cart_page.dart';
+import 'package:nutrition_guru/pages/dummy.dart';
 import 'package:nutrition_guru/pages/nutritionist_ai_page.dart';
 import 'package:nutrition_guru/pages/home_page.dart';
 import 'package:nutrition_guru/themes/light_mode.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
         '/home_page': (context) => const HomePage(),
         '/cart_page': (context) => const CartPage(),
         '/nutritionist_ai_page': (context) => const NutritionistAiPage(),
-        '/calorie_predictor_page': (context) => const CalorieAiPage()
+        '/calorie_predictor_page': (context) => const CalorieAiPage(),
+        '/dummy': (context) => Dummy(),
       },
     );
   }
