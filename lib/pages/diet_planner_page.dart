@@ -19,7 +19,7 @@ class DietPlannerPage extends StatefulWidget {
 class _DietPlannerPageState extends State<DietPlannerPage> {
   int questionNumber = 0;
   bool loading = false;
-  String dietPlannerResponse = "";
+  String dietPlannerResponse = '';
   String submitText = "Submit";
 
   void apiCall(String dietInput) async {
@@ -306,7 +306,7 @@ class _DietPlannerPageState extends State<DietPlannerPage> {
                 ),
               ),
               Visibility(
-                visible: !loading && dietPlannerResponse != "",
+                visible: !loading && dietPlannerResponse != '',
                 child: AiResponseLayout(
                   aiResponse: dietPlannerResponse,
                   aiHeader: "Diet Planner",

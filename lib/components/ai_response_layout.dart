@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -8,7 +7,8 @@ class AiResponseLayout extends StatelessWidget {
   final String aiResponse;
   final String aiHeader;
 
-  const AiResponseLayout({Key? key, this.img, required this.aiResponse, required this.aiHeader})
+  const AiResponseLayout(
+      {Key? key, this.img, required this.aiResponse, required this.aiHeader})
       : super(key: key);
 
   @override
@@ -49,6 +49,11 @@ class AiResponseLayout extends StatelessWidget {
               ),
             ),
           ),
+
+          const SizedBox(height: 10),
+          const Padding(
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+              child: Icon(Icons.play_circle_fill)),
 
           const SizedBox(height: 10),
           // Product name

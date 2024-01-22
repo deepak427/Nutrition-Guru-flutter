@@ -1,7 +1,5 @@
 import 'package:nutrition_guru/models/item.dart';
 import 'package:nutrition_guru/models/items.dart';
-import 'package:nutrition_guru/models/product.dart';
-import 'package:nutrition_guru/models/service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
