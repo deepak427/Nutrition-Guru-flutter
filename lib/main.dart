@@ -1,4 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:nutrition_guru/models/items.dart';
 import 'package:nutrition_guru/models/questions_list.dart';
 import 'package:nutrition_guru/models/service.dart';
 import 'package:nutrition_guru/pages/calorie_predictor_page.dart';
@@ -22,6 +23,9 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => Service()),
         ChangeNotifierProvider(create: (context) => QuestionList()),
+        ChangeNotifierProvider(
+          create: (context) => Items(),
+        )
       ],
       child: const MyApp(),
     ),

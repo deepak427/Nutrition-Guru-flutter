@@ -1,4 +1,4 @@
-import 'package:nutrition_guru/models/Item.dart';
+import 'package:nutrition_guru/models/item.dart';
 import 'package:flutter/material.dart';
 
 class Items extends ChangeNotifier {
@@ -6,34 +6,27 @@ class Items extends ChangeNotifier {
   final List<Item> _shop = [
     //Item 1
     Item(
-      name: "Nutritionist AI",
+      name: "Whey Protien",
       price: 99.99,
       description:
-          "Nutritionist AI leverages artificial intelligence to give health insights about a Item.",
-      imageUrl: 'assests/nutritionist_animation.json',
+          "Whey protein is a high-quality protein derived from milk. It contains essential amino acids, promoting muscle growth, recovery, and overall fitness. It's popular among athletes and fitness enthusiasts.",
+      imageUrl: 'assests/images/whey.jpg',
     ),
     //Item 2
     Item(
-      name: "Calorie Predictor",
+      name: "Ragi",
       price: 9.99,
       description:
-          "Calorie predictor predicts the total calories in a given image of food.",
-      imageUrl: 'assests/calorie_animation.json',
+          "Ragi is a nutrient-dense grain rich in calcium, iron, and fiber. It's gluten-free and often used in various cuisines for its health benefits, aiding in digestion and managing diabetes.",
+      imageUrl: 'assests/images/ragi.jpg',
     ),
     // Item 3
     Item(
-      name: "Diet Planner",
+      name: "Bhangjira",
       price: 999.99,
       description:
-          "Diet planner plans the perfect diet according to the user's requirements, considering various factors like age, sex, location, health, etc.",
-      imageUrl: 'assests/calorie_animation.json',
-    ),
-    Item(
-      name: "Store",
-      price: 999.99,
-      description:
-          "In this store, you can find all the Items that will help you stay healthy. This store contains nutrition Items from small to large locations.",
-      imageUrl: 'assests/calorie_animation.json',
+          "Bhangira, or chia seeds, are tiny powerhouses packed with omega-3 fatty acids, fiber, and antioxidants. They offer numerous health benefits, including supporting heart health, promoting hydration, and aiding in weight management.",
+      imageUrl: 'assests/images/chia-seeds.jpg',
     ),
   ];
 
