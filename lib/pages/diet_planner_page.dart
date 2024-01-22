@@ -236,8 +236,10 @@ class _DietPlannerPageState extends State<DietPlannerPage> {
                               });
                             },
                             style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.orange),
+                              backgroundColor: (questionNumber <
+                                      questionsList.length - 1)
+                                  ? MaterialStateProperty.all(Colors.orange)
+                                  : MaterialStateProperty.all(Colors.purple),
                               padding: MaterialStateProperty.all(
                                 const EdgeInsets.symmetric(
                                     vertical: 16.0, horizontal: 30),
@@ -248,7 +250,10 @@ class _DietPlannerPageState extends State<DietPlannerPage> {
                                 ),
                               ),
                             ),
-                            child: const Text('Next'),
+                            child: Text(
+                                (questionNumber < questionsList.length - 1)
+                                    ? "Next"
+                                    : "Submit"),
                           ),
                         ),
                       ),
