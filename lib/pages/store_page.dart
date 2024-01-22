@@ -4,7 +4,7 @@ import 'package:nutrition_guru/models/items.dart';
 import 'package:provider/provider.dart';
 
 class StorePage extends StatelessWidget {
-  const StorePage({Key? key});
+  const StorePage({super.key});
 
   @override
   Widget build(BuildContext context) {

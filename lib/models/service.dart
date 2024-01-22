@@ -28,7 +28,7 @@ class Service extends ChangeNotifier {
       price: 999.99,
       description:
           "Diet planner plans the perfect diet according to the user's requirements, considering various factors like age, sex, location, health, etc.",
-      animationPath: 'assests/calorie_animation.json',
+      animationPath: 'assests/diet_animation.json',
       routePath: "/diet_planner_page",
     ),
     Product(
@@ -36,7 +36,7 @@ class Service extends ChangeNotifier {
       price: 999.99,
       description:
           "In this store, you can find all the products that will help you stay healthy. This store contains nutrition products from small to large locations.",
-      animationPath: 'assests/calorie_animation.json',
+      animationPath: 'assests/store_animation.json',
       routePath: "/store_page",
     ),
   ];

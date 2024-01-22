@@ -41,6 +41,7 @@ class MyItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartItems = context.watch<Items>().cart;
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
@@ -92,26 +93,33 @@ class MyItemTile extends StatelessWidget {
             ],
           ),
 
+          const SizedBox(height: 5),
+
           // price + add to cart button
 
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     //product price
-          //     Text('\$${product.price.toStringAsFixed(2)}'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //product price
+              Text('\$${item.price.toStringAsFixed(2)}'),
 
-          //     //add button
-          //     Container(
-          //       decoration: BoxDecoration(
-          //           color: Theme.of(context).colorScheme.onSecondary,
-          //           borderRadius: BorderRadius.circular(12)),
-          //       child: IconButton(
-          //         onPressed: () => addToCart(context),
-          //         icon: const Icon(Icons.add),
-          //       ),
-          //     )
-          //   ],
-          // )
+              //add button
+              Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onSecondary,
+                    borderRadius: BorderRadius.circular(12)),
+                child: !cartItems.contains(item)
+                    ? IconButton(
+                        onPressed: () => addToCart(context),
+                        icon: const Icon(Icons.add),
+                      )
+                    : const IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.check),
+                      ),
+              )
+            ],
+          )
         ],
       ),
     );

@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 
 Future<String> makeGptVisionApiRequest(
     String imageUrl, String systemMessage) async {
-      
   String apiUrl = "${dotenv.env['URL_CLARIFAI']}";
   String apiKey = "${dotenv.env['API_KEY_CLARIFAI']}";
 
@@ -17,13 +16,6 @@ Future<String> makeGptVisionApiRequest(
         }
       }
     ],
-    "model": {
-      "model_version": {
-        "output_info": {
-          "params": {"temperature": 0.5, "max_tokens": 2048, "top_k": 0.95}
-        }
-      }
-    }
   };
 
   try {

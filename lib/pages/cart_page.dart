@@ -1,3 +1,5 @@
+import 'package:nutrition_guru/models/item.dart';
+import 'package:nutrition_guru/models/items.dart';
 import 'package:nutrition_guru/models/product.dart';
 import 'package:nutrition_guru/models/service.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,7 @@ class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   // remove item from cart
-  void removeItemFromCart(BuildContext context, Product product) {
+  void removeItemFromCart(BuildContext context, Item item) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -25,7 +27,7 @@ class CartPage extends StatelessWidget {
               Navigator.pop(context);
 
               //add to cart
-              context.read<Service>().removeFromCart(product);
+              context.read<Items>().removeFromCart(item);
             },
             child: const Text("Yes"),
           )
@@ -36,7 +38,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = context.watch<Service>().cart;
+    final cart = context.watch<Items>().cart;
 
     return Scaffold(
       appBar: AppBar(
@@ -59,12 +61,40 @@ class CartPage extends StatelessWidget {
                       final item = cart[index];
 
                       //return as cart title UI
-                      return ListTile(
-                        title: Text(item.name),
-                        subtitle: Text(item.price.toStringAsFixed(2)),
-                        trailing: IconButton(
-                            onPressed: () => removeItemFromCart(context, item),
-                            icon: const Icon(Icons.remove)),
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Card(
+                          elevation: 3,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 16),
+                          child: ListTile(
+                            tileColor: Theme.of(context).colorScheme.primary,
+                            contentPadding: const EdgeInsets.all(8),
+                            title: Text(
+                              item.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            subtitle: Text(
+                              '\$${item.price.toStringAsFixed(2)}',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              onPressed: () =>
+                                  removeItemFromCart(context, item),
+                              icon: const Icon(
+                                Icons.remove,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ),
                       );
                     }),
           )

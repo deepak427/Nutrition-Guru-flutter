@@ -28,7 +28,7 @@ class MyDrawer extends StatelessWidget {
               MyListTile(
                   text: "Shop",
                   icon: Icons.home,
-                  onTap: () => Navigator.pop(context)),
+                  onTap: () => Navigator.pushNamed(context, '/store_page')),
 
               //cart tile
 
@@ -49,7 +49,7 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 25),
             child: MyListTile(
-                text: "Shop",
+                text: "Exit",
                 icon: Icons.logout,
                 onTap: () => {
                       Navigator.pushNamedAndRemoveUntil(
