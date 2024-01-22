@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -171,9 +172,11 @@ class _AiPageState extends State<AiPage> {
                 //Image upload button
 
                 ElevatedButton(
-                  onPressed: () {
-                    myAlert();
-                  },
+                  onPressed: buttonText == "Uploading"
+                      ? null
+                      : () {
+                          myAlert();
+                        },
                   child: Text(
                     buttonText,
                     style: TextStyle(
@@ -197,6 +200,7 @@ class _AiPageState extends State<AiPage> {
                   child: AiResponseLayout(
                     img: image,
                     aiResponse: nutritionistResponse,
+                    aiHeader: widget.header,
                   ),
                 )
               ],

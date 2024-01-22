@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition_guru/models/question.dart';
 
 class MyProgressIndicator extends StatelessWidget {
   final int totalQuestions;
   final int currentQuestion;
+  final List<Question> questionsList;
   const MyProgressIndicator(
-      {super.key, required this.totalQuestions, required this.currentQuestion});
+      {super.key,
+      required this.totalQuestions,
+      required this.currentQuestion,
+      required this.questionsList});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +22,14 @@ class MyProgressIndicator extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(totalQuestions, (index) {
           return Icon(
-            index == currentQuestion
+            questionsList[index].selected != " "
                 ? Icons.radio_button_checked
                 : Icons.radio_button_unchecked,
-            color: index == currentQuestion ? Colors.orange : Colors.grey,
+            color: currentQuestion == index
+                ? Colors.purple
+                : questionsList[index].selected != " "
+                    ? Colors.orange
+                    : Colors.grey,
           );
         }),
       ),

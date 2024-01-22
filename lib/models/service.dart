@@ -31,6 +31,14 @@ class Service extends ChangeNotifier {
       animationPath: 'assests/calorie_animation.json',
       routePath: "/diet_planner_page",
     ),
+    Product(
+      name: "Store",
+      price: 999.99,
+      description:
+          "In this store, you can find all the products that will help you stay healthy. This store contains nutrition products from small to large locations.",
+      animationPath: 'assests/calorie_animation.json',
+      routePath: "/store_page",
+    ),
   ];
 
   //user cart

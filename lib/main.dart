@@ -6,6 +6,7 @@ import 'package:nutrition_guru/pages/cart_page.dart';
 import 'package:nutrition_guru/pages/diet_planner_page.dart';
 import 'package:nutrition_guru/pages/nutritionist_ai_page.dart';
 import 'package:nutrition_guru/pages/home_page.dart';
+import 'package:nutrition_guru/pages/store_page.dart';
 import 'package:nutrition_guru/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +21,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => Service()),
-        ChangeNotifierProvider(
-            create: (context) => QuestionList()),
+        ChangeNotifierProvider(create: (context) => QuestionList()),
       ],
       child: const MyApp(),
     ),
@@ -43,7 +43,8 @@ class MyApp extends StatelessWidget {
         '/cart_page': (context) => const CartPage(),
         '/nutritionist_ai_page': (context) => const NutritionistAiPage(),
         '/calorie_predictor_page': (context) => const CalorieAiPage(),
-        '/diet_planner_page': (context) => DietPlannerPage(),
+        '/diet_planner_page': (context) => const DietPlannerPage(),
+        '/store_page': (context) => const StorePage(),
       },
     );
   }

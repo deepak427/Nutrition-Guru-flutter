@@ -6,8 +6,9 @@ import 'package:image_picker/image_picker.dart';
 class AiResponseLayout extends StatelessWidget {
   final XFile? img;
   final String aiResponse;
+  final String aiHeader;
 
-  const AiResponseLayout({Key? key, this.img, required this.aiResponse})
+  const AiResponseLayout({Key? key, this.img, required this.aiResponse, required this.aiHeader})
       : super(key: key);
 
   @override
@@ -26,21 +27,23 @@ class AiResponseLayout extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(15),
             child: Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(3),
-                child: Image.file(
-                  File(img!.path),
-                  fit: BoxFit.cover,
-                ),
-              ),
+              child: img != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(3),
+                      child: Image.file(
+                        File(img!.path),
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  : Container(), // Or SizedBox()
             ),
           ),
 
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
             child: Text(
-              "Nutritionist AI",
-              style: TextStyle(
+              aiHeader,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
