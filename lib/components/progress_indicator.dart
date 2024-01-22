@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyProgressIndicator extends StatelessWidget {
-  const MyProgressIndicator({super.key});
+  final int totalQuestions;
+  final int currentQuestion;
+  const MyProgressIndicator(
+      {super.key, required this.totalQuestions, required this.currentQuestion});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +15,12 @@ class MyProgressIndicator extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 7),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(3, (index) {
+        children: List.generate(totalQuestions, (index) {
           return Icon(
-            index == 1
+            index == currentQuestion
                 ? Icons.radio_button_checked
                 : Icons.radio_button_unchecked,
-            color: index == 1 ? Colors.orange : Colors.grey,
+            color: index == currentQuestion ? Colors.orange : Colors.grey,
           );
         }),
       ),

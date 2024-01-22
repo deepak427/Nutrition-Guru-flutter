@@ -1,4 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:nutrition_guru/models/questions_list.dart';
 import 'package:nutrition_guru/models/service.dart';
 import 'package:nutrition_guru/pages/calorie_predictor_page.dart';
 import 'package:nutrition_guru/pages/cart_page.dart';
@@ -15,10 +16,16 @@ Future<void> main() async {
   await dotenv.load(fileName: 'lib/.env');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(ChangeNotifierProvider(
-    create: (context) => Service(),
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Service()),
+        ChangeNotifierProvider(
+            create: (context) => QuestionList()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
