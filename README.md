@@ -1,4 +1,4 @@
-# nutrition_guru
+# Nutrition Guru
 
 Nutrition Guru aims to solve nutrition problems among people with the help of the latest technologies and research papers. 
 
