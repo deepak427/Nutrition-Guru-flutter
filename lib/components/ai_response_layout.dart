@@ -22,9 +22,14 @@ class AiResponseLayout extends StatefulWidget {
 
 class _AiResponseLayoutState extends State<AiResponseLayout> {
   String audioUrl = '';
-  int audioStatus = 0;
+  int audioStatus = -1;
+  AudioPlayer audioPlayer = AudioPlayer();
 
   Future getAudio(String text) async {
+    setState(() {
+      audioStatus = 0;
+    });
+
     String base64Audio = await makeGptTtsApiRequest(text);
     Uint8List audioData = base64.decode(base64Audio);
     //generate a unique name
@@ -40,10 +45,15 @@ class _AiResponseLayoutState extends State<AiResponseLayout> {
     try {
       //store the audio
       await referenceAudioToUpload.putData(audioData);
-      String audioUrl = await referenceAudioToUpload.getDownloadURL();
+      audioUrl = await referenceAudioToUpload.getDownloadURL();
     } catch (error) {
       rethrow;
     }
+
+    setState(() {
+      audioStatus = 1;
+      audioPlayer.play(UrlSource(audioUrl));
+    });
   }
 
   @override
@@ -89,17 +99,42 @@ class _AiResponseLayoutState extends State<AiResponseLayout> {
           GestureDetector(
             onTap: () {
               // Replace 'your_audio_url.mp3' with the actual download URL of your audio file
-              getAudio(widget.aiResponse);
-
-              // Create an instance of the AudioPlayer
-              AudioPlayer audioPlayer = AudioPlayer();
-
-              // Play the audio
-              // audioPlayer.play(UrlSource(audioUrl));
+              if (audioUrl != '') {
+                if (audioStatus == 1) {
+                  setState(() {
+                    audioPlayer.pause();
+                    audioStatus = -1;
+                  });
+                } else {
+                  setState(() {
+                    audioPlayer.play(UrlSource(audioUrl));
+                    audioStatus = 1;
+                  });
+                }
+              } else {
+                getAudio(widget.aiResponse);
+              }
             },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-              child: Icon( Icons.play_circle_fill),
+            child: Row(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+                  child: Icon(audioStatus == -1
+                      ? Icons.play_circle_fill
+                      : audioStatus == 0
+                          ? Icons.api_rounded
+                          : Icons.pause_circle),
+                ),
+                if (audioStatus == 0)
+                  Text(
+                    'Loading',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+              ],
             ),
           ),
           const SizedBox(height: 10),
@@ -117,5 +152,12 @@ class _AiResponseLayoutState extends State<AiResponseLayout> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Release resources in the dispose method
+    audioPlayer.dispose();
+    super.dispose();
   }
 }
