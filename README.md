@@ -4,7 +4,7 @@ Nutrition Guru aims to solve nutrition problems among people with the help of th
 
 ## Getting Started
 
-### Prerequisites
+
 
 Make sure you have the following installed:
 
