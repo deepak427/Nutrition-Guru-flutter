@@ -1,6 +1,6 @@
 # nutrition_guru
 
-A new Flutter project.
+Nutrition Guru is mobile application with many features like Nutritionist AI, calorie predictor, diet planner etc.
 
 ## Getting Started
 
