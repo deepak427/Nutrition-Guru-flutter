@@ -1,10 +1,6 @@
 # Nutrition Guru
 
-<<<<<<< HEAD
-Nutrition Guru is mobile application with many features like Nutritionist AI, calorie predictor, diet planner etc.
-=======
 Nutrition Guru aims to solve nutrition problems among people with the help of the latest technologies and research papers. 
->>>>>>> e8d21d78262831696560fc53f751850c28ba1a06
 
 ## Getting Started
 
